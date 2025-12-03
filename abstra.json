@@ -1,0 +1,148 @@
+{
+  "components": [
+    {
+      "id": "xku4wad",
+      "is_initial": false,
+      "package_name": "reembolso-demo-component1-politicas",
+      "title": "MotorPoliticasPosVenda",
+      "transitions": [
+        {
+          "id": "xqrh9rw",
+          "target_id": "ewg5jce",
+          "target_type": "components",
+          "type": "task"
+        }
+      ],
+      "workflow_position": [
+        -180,
+        690
+      ]
+    },
+    {
+      "id": "ewg5jce",
+      "is_initial": false,
+      "package_name": "demo-reembolso-component2-agente-resolucao",
+      "title": "AgentePlanoResolucao",
+      "transitions": [
+        {
+          "id": "6j973cl",
+          "target_id": "330eb9e3-ee38-44cd-b960-2cd7caecff96",
+          "target_type": "scripts",
+          "type": "task"
+        }
+      ],
+      "workflow_position": [
+        225,
+        690
+      ]
+    }
+  ],
+  "forms": [
+    {
+      "access_control": {
+        "is_public": false,
+        "required_roles": []
+      },
+      "auto_start": false,
+      "end_message": null,
+      "error_message": null,
+      "file": "form_orquestrador_pos_venda.py",
+      "id": "4f753efe-caeb-4bff-b6e9-6d0bff78e8cc",
+      "input": false,
+      "is_initial": true,
+      "notification_trigger": {
+        "enabled": false,
+        "variable_name": "assignee_emails"
+      },
+      "output": false,
+      "path": "form-orquestrador-pos-venda",
+      "start_button_text": null,
+      "start_message": null,
+      "timeout_message": null,
+      "title": "Orquestrador P\u00f3s-Venda",
+      "transitions": [
+        {
+          "id": "un2fz78",
+          "target_id": "xku4wad",
+          "target_type": "components",
+          "type": "task"
+        }
+      ],
+      "workflow_position": [
+        -495,
+        525
+      ]
+    },
+    {
+      "access_control": {
+        "is_public": false,
+        "required_roles": []
+      },
+      "auto_start": false,
+      "end_message": null,
+      "error_message": null,
+      "file": "form_analise_casos.py",
+      "id": "a3dde67b-ef25-489c-b160-2e8cad4bf0a9",
+      "input": false,
+      "is_initial": false,
+      "notification_trigger": {
+        "enabled": false,
+        "variable_name": "assignee_emails"
+      },
+      "output": false,
+      "path": "form-analise-casos",
+      "start_button_text": null,
+      "start_message": null,
+      "timeout_message": null,
+      "title": "An\u00e1lise de Casos P\u00f3s-Venda",
+      "transitions": [],
+      "workflow_position": [
+        1035,
+        540
+      ]
+    }
+  ],
+  "home": {
+    "access_control": {
+      "is_public": false,
+      "required_roles": []
+    }
+  },
+  "hooks": [],
+  "jobs": [],
+  "scripts": [
+    {
+      "file": "tasklet_consolidar_resultado.py",
+      "id": "330eb9e3-ee38-44cd-b960-2cd7caecff96",
+      "input": false,
+      "is_initial": false,
+      "output": false,
+      "title": "Consolidar e Exibir Resultado",
+      "transitions": [
+        {
+          "id": "d45d9947-2a2a-4847-8448-e40789fb55b7",
+          "target_id": "a3dde67b-ef25-489c-b160-2e8cad4bf0a9",
+          "target_type": "forms",
+          "task_type": "analisar_caso",
+          "type": "task"
+        }
+      ],
+      "workflow_position": [
+        570,
+        540
+      ]
+    }
+  ],
+  "version": "17.0",
+  "workspace": {
+    "brand_name": "Demo: An\u00e1lise de Solicita\u00e7\u00f5es de Reembolso",
+    "favicon_url": "",
+    "font_color": null,
+    "font_family": "Inter",
+    "language": "pt",
+    "logo_url": "",
+    "main_color": "#A527FE",
+    "name": "Workspace",
+    "theme": null
+  }
+}
